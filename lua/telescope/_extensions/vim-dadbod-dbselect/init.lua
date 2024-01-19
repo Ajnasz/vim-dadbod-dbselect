@@ -12,7 +12,7 @@ end
 
 function find(telescope_opts)
 
-	local results = vim.fn['dadbod_dbselect#get_choices'](false)
+	local results = vim.fn['dadbod_dbselect#get_choices']()
 	pickers.new(telescope_opts, {
 		prompt_tile = "dadbod_dbselect",
 
