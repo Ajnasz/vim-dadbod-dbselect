@@ -34,8 +34,13 @@ It has a built in function to use neovim's [vim.ui.select()](https://neovim.io/d
 
 The plugin also provides an extension for the [telescope](https://github.com/nvim-telescope/telescope.nvim) plugin:
 
+```lua
+local telescope = require("telescope")
+telescope.load_extension("vim-dadbod-dbselect")
+```
+
 ```vim
-:Telescope vim-dadbod-db-select
+:Telescope vim-dadbod-dbselect
 ```
 
 ### Example configuration
