@@ -1,6 +1,6 @@
 # vim-dadbod DBSelect
 
-Extension for [vim-dadbod](https://github.com/tpope/vim-dadbod) to enable selection database configuration from your prefconfigured list.
+Extension for [vim-dadbod](https://github.com/tpope/vim-dadbod) to enable selection of database configurations from your preconfigured list.
 
 ## Setup
 
@@ -8,11 +8,11 @@ Extension for [vim-dadbod](https://github.com/tpope/vim-dadbod) to enable select
 
 `g:dadbods`
 
-A dictionary where the key is the text you want to show on the ui, the value is a connection string or a function which returns a connection string.
+A dictionary where the key represents the text displayed on the UI, and the value is either a connection string or a function that returns a connection string.
 
 `g:dadbod_loaders`
 
-A list of functions where each function returns a dictionary to extend `g:dadbods`. Useful to load configurations dynamically from files.
+A list of functions, each returning a dictionary to extend `g:dadbods`. This is useful for dynamically loading configurations from files.
 
 ### FZF.vim
 
