@@ -1,0 +1,75 @@
+*dadbod_dbselect.txt* Plugin for managing databases for vim-dadbod
+
+
+==============================================================================
+CONFIGURATION
+
+|g:dadbods|
+
+Manually list databases:
+>vim
+  let g:dadbods = {
+    \"mysql:localhost": "mysql://127.0.0.1:3306/?login-path=localhost",
+    \ "mysql:foobar:rw": "mysql://foo.bar.baz/?login-path=login-path",
+    \"mongo:localhost": "mongodb://localhost",
+  \}
+<
+
+The key will be the listed to select from, the value will be the url to the
+database. The b:db variable will be set to the value.
+The value can be a function in case you want to get the url programatically,
+for example decrypting a file.
+
+>vim
+  let g:dadbods = {
+    \"database": {->  system("gpg -d ~/.dbpassword.gpg")},
+  \}
+<
+
+|g:dadbods_loaders|
+
+Dynamically list databases
+
+If the database list is also dynamic, you can use a functions to load the databases:
+Important that the function must return a *dictionary*, where the key is the
+name of the connection the value is the connection string.
+
+>vim
+  let g:dadbods_loaders = [
+    {-> {"localMongo": "mongodb://localhost"}}
+  ]
+<
+
+
+==============================================================================
+COMMANDS
+
+*dadbod_dbselect#db_select_fzf()*    |dadbod_dbselect#db_select_vim_ui_select|
+
+Opens the list of available database definitions in fzf search window
+The fzf plugin is required: https://github.com/junegunn/fzf.vim
+
+*dadbod_dbselect#db_select_vim_ui_select()* |dadbod_dbselect#db_select_vim_ui_select|
+
+neovim only
+Opens the lists available database definitions using neovim's
+|vim.ui.select()|
+
+*dadbod_dbselect#get_choices()* |dadbod_dbselect#get_choices|
+
+Returns the list of available db connections
+
+*dadbod_dbselect#db_selected({selected})*        |dadbod_dbselect#db_selected|
+
+Set the `b:db` variable to the selected item's url
+
+==============================================================================
+Some helper commands good to put into vimrc
+>vim
+  " add DBSelect user command
+  command! DBSelect :call dadbod_dbselect#db_select_fzf()
+  " set default config to mysql:localhost
+  call dadbod_dbselect#db_selected("mysql:localhost")
+<
+
+ vim:tw=78:ts=8:noet:ft=help:norl:
