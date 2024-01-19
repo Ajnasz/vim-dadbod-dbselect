@@ -22,6 +22,21 @@ Install https://github.com/junegunn/fzf.vim plugin
 command! DBSelect :call dadbod_dbselect#db_select_fzf()
 ```
 
+### Neovim vim.ui
+
+It has a built in function to use neovim's [vim.ui.select()](https://neovim.io/doc/user/lua.html#vim.ui) function
+
+```vim
+:call dadbod_dbselect#db_select_vim_ui_select()
+```
+
+### Telescope extension
+
+The plugin also provides an extension for the [telescope](https://github.com/nvim-telescope/telescope.nvim) plugin:
+
+```vim
+:Telescope vim-dadbod-db-select
+```
 
 ### Example configuration
 
