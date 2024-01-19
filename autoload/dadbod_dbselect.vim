@@ -2,13 +2,13 @@ scriptencoding utf-8
 
 function! s:get_configs()
 	let l:configs = {}
-	for F in g:dadbods_loaders
+	for F in g:database_config_loaders
 		let l:c = F()
 		if type(l:c) ==# v:t_dict
 			call extend(l:configs, l:c)
 		endif
 	endfor
-	call extend(l:configs, g:dadbods)
+	call extend(l:configs, g:database_configs)
 
 	return l:configs
 endfunction

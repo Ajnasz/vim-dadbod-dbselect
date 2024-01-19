@@ -4,11 +4,11 @@
 ==============================================================================
 CONFIGURATION
 
-|g:dadbods|
+*g:database_configs*
 
 Manually list databases:
 >vim
-  let g:dadbods = {
+  let g:database_configs = {
     \"mysql:localhost": "mysql://127.0.0.1:3306/?login-path=localhost",
     \ "mysql:foobar:rw": "mysql://foo.bar.baz/?login-path=login-path",
     \"mongo:localhost": "mongodb://localhost",
@@ -21,12 +21,12 @@ The value can be a function in case you want to get the url programatically,
 for example decrypting a file.
 
 >vim
-  let g:dadbods = {
+  let g:database_configs = {
     \"database": {->  system("gpg -d ~/.dbpassword.gpg")},
   \}
 <
 
-|g:dadbods_loaders|
+*g:database_config_loaders*
 
 Dynamically list databases
 
@@ -44,22 +44,22 @@ name of the connection the value is the connection string.
 ==============================================================================
 COMMANDS
 
-*dadbod_dbselect#db_select_fzf()*    |dadbod_dbselect#db_select_vim_ui_select|
+*dadbod_dbselect#db_select_fzf()*
 
 Opens the list of available database definitions in fzf search window
 The fzf plugin is required: https://github.com/junegunn/fzf.vim
 
-*dadbod_dbselect#db_select_vim_ui_select()* |dadbod_dbselect#db_select_vim_ui_select|
+*dadbod_dbselect#db_select_vim_ui_select()*
 
 neovim only
 Opens the lists available database definitions using neovim's
 |vim.ui.select()|
 
-*dadbod_dbselect#get_choices()* |dadbod_dbselect#get_choices|
+*dadbod_dbselect#get_choices()*
 
 Returns the list of available db connections
 
-*dadbod_dbselect#db_selected({selected})*        |dadbod_dbselect#db_selected|
+*dadbod_dbselect#db_selected({selected})*
 
 Set the `b:db` variable to the selected item's url
 

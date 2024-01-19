@@ -3,10 +3,10 @@ if exists('g:loaded_dadbod_dbselect') || &compatible || v:version < 700
 endif
 
 let g:loaded_dadbod_dbselect = 1
-if !exists('g:dadbods')
-	let g:dadbods = {}
+if !exists('g:database_configs')
+	let g:database_configs = {}
 endif
 
-if !exists("g:dadbods_loaders")
-	let g:dadbods_loaders = []
+if !exists("g:database_config_loaders")
+	let g:database_config_loaders = []
 endif
