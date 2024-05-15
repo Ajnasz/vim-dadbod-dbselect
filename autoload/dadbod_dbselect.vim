@@ -31,6 +31,12 @@ function! dadbod_dbselect#db_selected(selection)
 		return
 	endif
 	let b:db = l:config
+	if exists('g:loaded_dbui')
+		if !exists('g:dbs')
+			let g:dbs = {}
+		endif
+		let g:dbs[a:selection] = b:db
+	endif
 endfunction
 
 function! dadbod_dbselect#get_choices()
@@ -51,3 +57,5 @@ endfunction
 function! dadbod_dbselect#db_select_fzf()
 	call fzf#run(fzf#wrap({ 'source': dadbod_dbselect#get_choices(), 'sink': { selection -> dadbod_dbselect#db_selected(selection) } }))
 endfunction
+
+" vi:noexpandtab

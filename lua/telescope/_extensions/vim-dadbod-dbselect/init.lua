@@ -36,5 +36,5 @@ end
 
 return telescope.register_extension {
   setup = function(opts) return opts end,
-  exports = {["vim-dadbod-dbselect"] = find}
+  exports = { ["vim-dadbod-dbselect"] = find }
 }
