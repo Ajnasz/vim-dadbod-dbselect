@@ -64,6 +64,11 @@ Returns the list of available db connections
 Set the `b:db` variable to the selected item's url
 If |vim-dadbod-ui| is installed, it will also add the entry to the `g:dbs` variable
 
+*dadbod_dbselect#fill_dbui()*
+
+Fills the |vim-dadbod-ui|'s `g:dbs` variable with the available databases from
+`g:database_configs` and `g:database_config_loaders`
+
 ==============================================================================
 Some helper commands good to put into vimrc
 >vim

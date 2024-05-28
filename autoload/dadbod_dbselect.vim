@@ -25,6 +25,23 @@ function! dadbod_dbselect#get_by_selection(selection)
 	return ""
 endfunction
 
+function! dadbod_dbselect#fill_dbui()
+		if !exists('g:loaded_dbui')
+			return
+		endif
+		let choices = dadbod_dbselect#get_choices()
+
+		if !empty(choices)
+			if empty(g:dbs)
+				let g:dbs = {}
+			endif
+
+			for choice in choices
+				let g:dbs[choice] = dadbod_dbselect#get_by_selection(choice)
+			endfor
+		endif
+endfunction
+
 function! dadbod_dbselect#db_selected(selection)
 	let l:config = dadbod_dbselect#get_by_selection(a:selection)
 	if empty(l:config)

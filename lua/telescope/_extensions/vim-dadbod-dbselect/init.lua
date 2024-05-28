@@ -10,8 +10,7 @@ if not has_telescope then
   error("This plugin requires nvim-telescope/telescope.nvim")
 end
 
-function find(telescope_opts)
-
+local function find(telescope_opts)
 	local results = vim.fn['dadbod_dbselect#get_choices']()
 	pickers.new(telescope_opts, {
 		prompt_tile = "dadbod_dbselect",
